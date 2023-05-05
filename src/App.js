@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState,useCallback } from 'react'
 
-function App() {
+import Upload from './comp/Upload'
+
+
+
+const App = () => {
+//  const [selectedImage , setSelectedImage] = useState(null)
+//  const CONTAINER_HEIGHT = 300
+//  const [crop, onCropChange] = React.useState({ x: 0, y: 0 })
+//   const [zoom, onZoomChange] = React.useState(1)
+
+//   const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+//     console.log(croppedArea, croppedAreaPixels)
+//   }, [])
+ 
+ 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Upload/>
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
