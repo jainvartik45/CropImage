@@ -68,8 +68,12 @@ function ImageCropper() {
       {croppedImage &&(<>
        <img src={croppedImage} alt="Cropped Image" height={nheight} width={nwidth}/>
        <form onSubmit={handleSubmit}>
+        <label>height:
         <input type='text' label='height' value={height} onChange={e=>setHeight(e.target.value)}/>
+        </label>
+        <label>Width:
         <input type='text' label='width' value={width} onChange={e=>setWidth(e.target.value)}/>
+        </label>
         <button type="submit">Resize</button>
        </form>
        </>
