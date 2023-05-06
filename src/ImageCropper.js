@@ -6,6 +6,16 @@ function ImageCropper() {
   const [crop, setCrop] = useState({ aspect: 1 / 1 });
   const [image, setImage] = useState(null);
   const [croppedImage, setCroppedImage] = useState(null);
+  const [height,setHeight] = useState(300)
+  const [width,setWidth] = useState(300)
+  const [nheight,setNHeight] = useState(300)
+  const [nwidth,setNWidth] = useState(300)
+
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+        setNHeight(height)
+        setNWidth(width);
+  }
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -39,6 +49,9 @@ function ImageCropper() {
     };
   };
 
+ 
+  
+
   return (
     <div>
       <input type="file" accept="image/*" onChange={handleFileChange} />
@@ -52,7 +65,16 @@ function ImageCropper() {
             <img src={image}/>
         </ReactCrop>
       )}
-      {croppedImage && <img src={croppedImage} alt="Cropped Image" />}
+      {croppedImage &&(<>
+       <img src={croppedImage} alt="Cropped Image" height={nheight} width={nwidth}/>
+       <form onSubmit={handleSubmit}>
+        <input type='text' label='height' value={height} onChange={e=>setHeight(e.target.value)}/>
+        <input type='text' label='width' value={width} onChange={e=>setWidth(e.target.value)}/>
+        <button type="submit">Resize</button>
+       </form>
+       </>
+      )
+      }
     </div>
   );
 }
